@@ -28,14 +28,11 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - name: Grant Execute Permission
-        run: chmod +x mvnw
-
       - name: Run Tests
-        run: ./mvnw test
+        run: mvn test
 
       - name: Build Application
-        run: ./mvnw clean package -DskipTests
+        run: mvn clean package -DskipTests
 
       - name: Build Docker Image
         run: docker build -t task-api .
